@@ -1,3 +1,47 @@
+# AEM React Showroom
+
+Prueba técnica – US-001: Configuración del proyecto base con integración de AEM y React.
+
+### Prerrequisitos
+- Java (según tu instalación de AEM 6.5)
+- Maven 3.8+
+- Node.js + npm (para `ui.frontend`)
+
+### 1 Crear el proyecto (AEM Archetype v54)
+```bash
+mvn -B org.apache.maven.plugins:maven-archetype-plugin:3.3.1:generate ^
+  -DarchetypeGroupId=com.adobe.aem ^
+  -DarchetypeArtifactId=aem-project-archetype ^
+  -DarchetypeVersion=54 ^
+  -DappTitle="Showroom Site" ^
+  -DappId=showroom ^
+  -DgroupId=com.showroom ^
+  -DfrontendModule=react ^
+  -DincludeExamples=n ^
+  -DaemVersion=6.5.8
+```
+
+### 2 Build + deploy (paquete único)
+
+Requiere una instancia local de AEM en ejecución (Author).
+```
+mvn clean install -PautoInstallSinglePackageage
+```
+
+### 3) Nota (solo si falla el build del frontend por OpenSSL)
+
+Si al correr el frontend aparece un error relacionado con OpenSSL/webpack en Node, se puede usar:
+--openssl-legacy-provider
+
+En ui.frontend/package.json:
+
+"start": "react-scripts --openssl-legacy-provider start"
+
+### Demo page
+URL: /content/showroom/us/en/showroom-demo.html
+Resultado esperado: un componente React básico renderizado dentro de una página AEM.
+
+
 # Sample AEM project template
 
 This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
