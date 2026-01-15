@@ -41,6 +41,26 @@ En ui.frontend/package.json:
 URL: /content/showroom/us/en/showroom-demo.html
 Resultado esperado: un componente React básico renderizado dentro de una página AEM.
 
+## US-002 – Modelo de Contenido en AEM (Backend ligero)
+
+El componente *Showroom* define un modelo de contenido simple mediante un multifield, donde cada item representa un producto del showroom.
+
+Cada producto contiene las siguientes propiedades:
+- title
+- description
+- fileReference (imagen en DAM)
+- price
+- sku
+
+### Exposición de datos en JSON
+
+El componente expone su información mediante el Sling Model Exporter utilizando la extensión
+`.model.json`.
+
+Ejemplo de URL para obtener el JSON del componente:
+
+/content/showroom/us/en/home/jcr:content/root/responsivegrid/showroom.model.json
+
 
 # Sample AEM project template
 

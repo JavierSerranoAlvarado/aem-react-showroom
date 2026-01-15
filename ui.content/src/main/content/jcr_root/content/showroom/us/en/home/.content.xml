@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          jcr:primaryType="cq:Page">
+    jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2018-10-04T09:50:29.650+02:00"
+        cq:lastModified="{Date}2026-01-15T01:29:03.620-06:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/showroom/settings/wcm/templates/spa-page-template"
         jcr:primaryType="cq:PageContent"
@@ -21,6 +21,48 @@
                     textIsRich="true">
                     <cq:responsive jcr:primaryType="nt:unstructured"/>
                 </text>
+                <showroom
+                    jcr:created="{Date}2026-01-14T16:12:49.237-06:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2026-01-15T01:29:03.616-06:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="showroom/components/showroom"
+                    description="qwe"
+                    fileReference="qwe"
+                    showroomTitle="Tech Accessories Showroom"
+                    title="qwe">
+                    <items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            title="Wireless Headphones"
+                            description="Over-ear wireless headphones with active noise cancellation."
+                            fileReference="/content/dam/showroom/headphones.png"
+                            price="1299"
+                            sku="WH-001"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            title="Mechanical Keyboard"
+                            description="Compact mechanical keyboard with customizable RGB lighting."
+                            fileReference="/content/dam/showroom/keyboard.png"
+                            price="999"
+                            sku="KB-002"/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            title="Gaming Mouse"
+                            description="Ergonomic gaming mouse with adjustable DPI and side buttons."
+                            fileReference="/content/dam/showroom/mouse.png"
+                            price="699"
+                            sku="GM-003"/>
+                        <item3
+                            jcr:primaryType="nt:unstructured"
+                            title="Smartwatch"
+                            description="Smartwatch with fitness tracking and notification support."
+                            fileReference="/content/dam/showroom/smartwatch.png"
+                            price="1899"
+                            sku="SW-004"/>
+                    </items>
+                </showroom>
             </responsivegrid>
         </root>
     </jcr:content>
