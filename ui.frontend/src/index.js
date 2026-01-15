@@ -1,7 +1,7 @@
 import 'react-app-polyfill/stable';
 import 'react-app-polyfill/ie9';
 import 'custom-event-polyfill';
-
+import Showroom from './components/Showroom/Showroom';
 import { Constants, ModelManager } from '@adobe/aem-spa-page-model-manager';
 import { createBrowserHistory } from 'history';
 import React from 'react';
@@ -30,6 +30,11 @@ const renderApp = () => {
                     cqPath={pageModel[Constants.PATH_PROP]}
                     locationPathname={window.location.pathname}
                 />
+                {/* [US-003] 
+                    Este componente está codificado aquí para demostrar la funcionalidad/interfaz de usuario 
+                    independientemente de AEM. 
+                    */}
+                <Showroom />
             </Router>,
             document.getElementById('spa-root')
         );

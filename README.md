@@ -61,6 +61,36 @@ Ejemplo de URL para obtener el JSON del componente:
 
 /content/showroom/us/en/home/jcr:content/root/responsivegrid/showroom.model.json
 
+### US-003 -  Desarrollo de Componentes React
+
+Se implementa un showroom de productos utilizando React, enfocado en la creación de componentes funcionales, manejo básico de estado e interacción, como parte de la prueba técnica AEM / React.
+
+## Estructura de Componentes
+
+- **Showroom**
+  - Contenedor principal del showroom
+  - Maneja el estado de selección del producto
+  - Renderiza el grid de productos y el modal de detalle
+
+- **ShowroomCard**
+  - Representa un producto individual dentro del listado
+  - Muestra imagen, título y precio
+  - Dispara el evento para ver el detalle
+
+- **ProductModal**
+  - Muestra el detalle del producto seleccionado
+  - Permite cerrar por botón, click en overlay o tecla Escape
+  - Implementa atributos básicos de accesibilidad
+
+## Manejo de Estado
+
+Se utiliza `useState` para manejar el producto seleccionado:
+
+- `null` → modal cerrado
+- `Product Object` → modal abierto con detalle
+
+Este enfoque mantiene el estado simple y fácil de escalar en futuras integraciones.
+
 
 # Sample AEM project template
 
