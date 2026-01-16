@@ -91,6 +91,35 @@ Se utiliza `useState` para manejar el producto seleccionado:
 
 Este enfoque mantiene el estado simple y fácil de escalar en futuras integraciones.
 
+## US-004 – Integración React + AEM
+
+### Integración del componente en AEM (SPA Editor)
+Para integrar el componente React dentro de AEM se utilizó `@adobe/aem-react-editable-components`.
+
+- El componente `Showroom` se mapea a un `resourceType` de AEM mediante `MapTo`.
+- AEM provee el contenido dinámicamente hacia React a través de `props` (por ejemplo `showroomTitle` e `items`).
+- Se incluyó `EditConfig` para soportar el comportamiento en Author (empty state) mediante:
+  - `emptyLabel`: etiqueta visible en el editor
+  - `isEmpty`: condición para marcar el componente como vacío
+
+**ResourceType mapeado:**
+- `showroom/components/showroom`
+
+### Consumo dinámico de datos
+Los datos del showroom se consumen de manera dinámica desde AEM mediante `props` (inyectados por el modelo JSON del SPA Editor / exporter).  
+Se eliminaron mocks/hardcode del componente principal y se renderiza el listado a partir de `props.items`.
+
+### Integración de assets (bundling/clientlibs)
+El CSS del showroom (`Showroom.css`) forma parte del build del frontend React.  
+El generador `aem-clientlib-generator` mueve automáticamente el codigo compilado a `ui.apps` en `/apps/showroom/clientlibs/clientlib-react`.
+
+## Resiliencia y gestión de errores
+Dado que esta entrega no incluye imágenes en el paquete:
+* **Imagen de reserva:** El componente React implementa un controlador `onError` en los elementos de imagen. Si la ruta de referencia en AEM (por ejemplo, `/content/dam/showroom/products/...`) no existe o no se carga, la interfaz de usuario recurre automáticamente a un placeholder (`https://placehold.co/300x300`).
+
+### Evidencia de actualización de UI
+Al actualizar el contenido del showroom en AEM (por ejemplo, título/propiedades de un ítem) React re-renderiza automáticamente al recibir nuevas `props`.  
+![Integration Demo](./docs/US-004_evidencia.gif)
 
 # Sample AEM project template
 

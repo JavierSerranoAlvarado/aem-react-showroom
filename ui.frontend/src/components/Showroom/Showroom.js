@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MapTo } from '@adobe/aem-react-editable-components'; 
 import ShowroomCard from './ShowroomCard/ShowroomCard';
 import ProductModal from './ProductModal/ProductModal';
 import './Showroom.css';
@@ -7,15 +8,16 @@ import './Showroom.css';
  * Componente contenedor principal.
  * Gestiona el estado de la lista de productos y la visibilidad del modal.
  */
-const Showroom = () => {
+export const Showroom = (props) => {
   //Gestión sencilla del estado para el producto modal activo.
   // null = modal cerrado | objeto = modal abierto con el producto seleccionado
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const title =  MOCK_DATA.showroomTitle || "Showroom (Modo React Puro)";
-  const products =  MOCK_DATA.items || [];
+  const title =  props.showroomTitle || "Showroom Default Title";
+  const products = props.items || [];
 
   // Caso vacío
+  //Opcionalmente se puede cambiar que muestre null u otro mensaje especifico
   if (products.length === 0) {
     return <div className="showroom-container"><p>No products available</p></div>;
   }
@@ -44,34 +46,13 @@ const Showroom = () => {
   );
 };
 
-// DATOS DE PRUEBA (MOCKS)
-// US-003: "Componentes React funcionales" sin depender del backend real.
-const MOCK_DATA = {
-  showroomTitle: "Tech Accessories Showroom (Mock)",
-  items: [
-    {
-      title: "Wireless Headphones",
-      description: "Over-ear wireless headphones with active noise cancellation.",
-      price: 1299,
-      sku: "WH-001",
-      fileReference: "https://placehold.co/300x300"
-    },
-    {
-      title: "Mechanical Keyboard",
-      description: "Compact mechanical keyboard with customizable RGB lighting.",
-      price: 999,
-      sku: "KB-002",
-      fileReference: "https://placehold.co/300x300"
-    },
-    {
-      title: "Gaming Mouse",
-      description: "Ergonomic gaming mouse with adjustable DPI and side buttons.",
-      price: 699,
-      sku: "GM-003",
-      fileReference: "https://placehold.co/300x300"
-    }
-  ]
+// CONFIGURACIÓN AEM
+// Esto le indica a AEM si el componente está vacío muestre este texto para que se pueda hacer clic en él.
+const ShowroomEditConfig = {
+  emptyLabel: "Showroom Component",
+  isEmpty: (props) => !props || !props.items || props.items.length === 0,
 };
 
+export default MapTo("showroom/components/showroom")(Showroom, ShowroomEditConfig);
 
-export default Showroom;
+;

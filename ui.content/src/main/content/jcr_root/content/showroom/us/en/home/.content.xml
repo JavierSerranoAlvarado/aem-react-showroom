@@ -37,28 +37,28 @@
                             jcr:primaryType="nt:unstructured"
                             title="Wireless Headphones"
                             description="Over-ear wireless headphones with active noise cancellation."
-                            fileReference="/content/dam/showroom/headphones.png"
+                            fileReference="/content/dam/showroom/products/headphones.jpg"
                             price="1299"
                             sku="WH-001"/>
                         <item1
                             jcr:primaryType="nt:unstructured"
                             title="Mechanical Keyboard"
                             description="Compact mechanical keyboard with customizable RGB lighting."
-                            fileReference="/content/dam/showroom/keyboard.png"
+                            fileReference="/content/dam/showroom/products/keyboard.jpg"
                             price="999"
                             sku="KB-002"/>
                         <item2
                             jcr:primaryType="nt:unstructured"
                             title="Gaming Mouse"
                             description="Ergonomic gaming mouse with adjustable DPI and side buttons."
-                            fileReference="/content/dam/showroom/mouse.png"
+                            fileReference="/content/dam/showroom/products/mouse.jpg"
                             price="699"
                             sku="GM-003"/>
                         <item3
                             jcr:primaryType="nt:unstructured"
                             title="Smartwatch"
                             description="Smartwatch with fitness tracking and notification support."
-                            fileReference="/content/dam/showroom/smartwatch.png"
+                            fileReference="/content/dam/showroom/products/smartwatch.jpg"
                             price="1899"
                             sku="SW-004"/>
                     </items>

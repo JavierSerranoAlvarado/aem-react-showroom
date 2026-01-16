@@ -13,6 +13,9 @@ const ShowroomCard = ({ title, fileReference, price, onViewDetail }) => {
             src={fileReference || 'https://placehold.co/300x300'} 
             alt={title} 
             className="card-image" 
+            onError={(e) => {
+              e.currentTarget.src = "https://placehold.co/300x300";
+            }}
         />
         <div className="card-content">
             <h3 className="card-title">{title}</h3>

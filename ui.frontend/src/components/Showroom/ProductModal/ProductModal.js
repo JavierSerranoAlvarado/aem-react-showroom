@@ -46,6 +46,9 @@ const ProductModal = ({ product, onClose }) => {
           src={product.fileReference || "https://placehold.co/300x300"}
           alt={product.title || "Product"}
           style={{ width: "100%", maxHeight: "300px", objectFit: "contain" }}
+          onError={(e) => {
+            e.currentTarget.src = "https://placehold.co/300x300";
+          }}
         />
 
         <div className="modal-details">
