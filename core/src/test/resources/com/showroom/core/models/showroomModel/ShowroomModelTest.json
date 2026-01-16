@@ -1,0 +1,32 @@
+{
+  "jcr:content": {
+    "root": {
+      "responsivegrid": {
+        "showroom": {
+          "sling:resourceType": "showroom/components/showroom",
+          "showroomTitle": "Tech Accessories Showroom",
+          "items": {
+            "item0": {
+              "title": "Mechanical Keyboard",
+              "price": 999.0,
+              "sku": "KB-002",
+              "fileReference": "/content/dam/showroom/products/keyboard.jpg",
+              "description": "Compact mechanical keyboard with customizable RGB lighting."
+            },
+            "item1": {
+              "title": "Wireless Headphones",
+              "price": 1299.0,
+              "sku": "WH-001",
+              "fileReference": "/content/dam/showroom/products/headphones.jpg",
+              "description": "Over-ear wireless headphones with active noise cancellation."
+            }
+          }
+        },
+        "showroom-empty": {
+          "sling:resourceType": "showroom/components/showroom",
+          "showroomTitle": "Empty Showroom"
+        }
+      }
+    }
+  }
+}

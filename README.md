@@ -121,6 +121,61 @@ Dado que esta entrega no incluye imágenes en el paquete:
 Al actualizar el contenido del showroom en AEM (por ejemplo, título/propiedades de un ítem) React re-renderiza automáticamente al recibir nuevas `props`.  
 ![Integration Demo](./docs/US-004_evidencia.gif)
 
+## US-005 – Pruebas Automatizadas
+
+Este ticket agrega pruebas automatizadas enfocadas en la lógica principal, priorizando frontend y agregando un ejemplo de test en backend.
+
+### Frontend (React)
+
+**Stack**
+- React Testing Library
+- `@testing-library/user-event`
+- Jest setup provisto por el arquetipo AEM (archivo `setupTest.js`)
+
+**Ubicación de pruebas**
+- `ui.frontend/src/utils/formatters.test.js`
+- `ui.frontend/src/components/Showroom/Showroom.test.js`
+
+#### Pruebas incluidas
+
+1) **Helper `formatPrice`**
+- Verifica formateo estándar a 2 decimales
+- Acepta strings numéricos
+- Maneja valores inválidos devolviendo `"N/A"` (incluye `null` y `undefined`)
+
+> Cambio asociado: se añadió una validación explícita en `formatters.js` para `null/undefined`:
+
+2) **Componente `Showroom`**
+Tests representativos de render, interacción y estado:
+Empty state: muestra "No products available" cuando no hay items.
+Render con datos: renderiza título, card y precio formateado.
+Interacción modal: abre el modal al hacer clic en "See Details" y muestra el detalle.
+Cierre de modal: cierra con el botón de cerrar (aria-label="Close").
+
+#### Ejecutar tests (frontend)
+Desde ui.frontend:
+
+`npm test`
+
+### Backend (AEM / Sling Model)
+
+Se agregó un ejemplo de prueba unitaria para el modelo ShowroomModel utilizando `AEM Mocks`:
+
+**JSON de contexto: `ShowroomModelTest.json`**
+**Test JUnit 5: `ShowroomModelTest.java`**
+
+#### Qué valida
+
+Adaptación correcta del request al Sling Model
+Lectura de propiedades (showroomTitle)
+Lectura de items y tamaño esperado
+Validación de valores del primer ítem 
+
+#### Ejecutar tests (backend)
+Desde core:
+
+`mvn test`
+
 # Sample AEM project template
 
 This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.

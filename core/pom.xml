@@ -186,6 +186,16 @@ Import-Package: javax.annotation;version=0.0.0,*
             <groupId>junit-addons</groupId>
             <artifactId>junit-addons</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xercesImpl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>io.wcm</groupId>
@@ -209,5 +219,6 @@ Import-Package: javax.annotation;version=0.0.0,*
             <version>1.4.14</version>
             <scope>test</scope>
         </dependency>
+        
     </dependencies>
 </project>
